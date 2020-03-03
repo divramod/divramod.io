@@ -12,7 +12,7 @@ for path_dir in $(find -type d -name "*" 2>/dev/null); do
     base=$(echo "${file_readme}" | awk -F "/" '{print $1}')
     if [[ "${base}" = "cs" ]]; then
       echo "cs"
-      sed -i '1s/^/[vim](http://cs.divramod.io/vim) [git](http://cs.divramod.io/git)\n/' "${file_readme}" 
+      sed -i '1s/^/[vim](http:\/\/cs\.divramod\.io\/vim) [git](http:\/\/cs\.divramod\.io\/git)\n/' "${file_readme}" 
     fi 
     echo "title: ${title}" 
     echo "file_readme: ${file_readme}" 
