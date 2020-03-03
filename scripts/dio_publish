@@ -5,4 +5,7 @@ git push origin master
 
 hcloud context use divramod.io
 ip=$(hcloud server list | tail -n +2 | fzf | awk '{ print $4; }')
-ssh -o "StrictHostKeyChecking no" root@"${ip}" '/var/www/divramod.io/scripts/dio_render'
+ssh -o "StrictHostKeyChecking no" root@"${ip}" '
+  /var/www/divramod.io/scripts/dio_render &&
+  systemctl restart nginx
+'
