@@ -1,13 +1,18 @@
-# [blog] index
+# blog.divramod.io
 - hello world
-```js
-console.log('hello');
-```
 
-# this and that
-Lore impsum. ...
+# code js
 
-## test
-```sh
-console.log('hello');
-```
+<pre>
+console.log('hello');<br>
+console.log('worldiasdf');
+</pre>
+
+# code sh
+
+~~~
+echo "hello"<br>
+echo "hello"
+echo "hello"
+echo "hello"
+~~~

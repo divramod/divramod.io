@@ -1,4 +1,10 @@
 <style type="text/css">
+
+.sourceCode {
+  background-color: #F8F8F8;
+}
+
+
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -13,8 +19,12 @@ body {
   line-height: 1.7;
   padding: 1em;
   margin: auto;
+  margin-top:1em;
   max-width: 42em;
   background: #fefefe;
+  border-style: solid;
+  border-color: #D3D3D3;
+  border-width: 1px;
 }
 
 a {
@@ -69,7 +79,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
   color: #111;
   line-height: 125%;
-  margin-top: 2em;
+  margin-top: 0.2em;
   font-weight: normal;
 }
 
@@ -78,27 +88,29 @@ h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2em;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
 }
 
 h2 {
-  font-size: 2em;
-}
-
-h3 {
   font-size: 1.5em;
 }
 
+h3 {
+  font-size: 1.3em;
+}
+
 h4 {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 h5 {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 h6 {
-  font-size: 0.9em;
+  font-size: 0.7em;
 }
 
 blockquote {

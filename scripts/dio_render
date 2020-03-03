@@ -10,6 +10,23 @@ for path_dir in $(find -type d -name "*" 2>/dev/null); do
     title=$(basename $(dirname "${file_readme}")) 
     echo "title: ${title}" 
     echo "file_readme: ${file_readme}" 
-    echo $(docker run --rm --volume "`pwd`:/data" pandoc/latex:2.6 -s --metadata title="${title}" -H css1.css "${file_readme}") > "${path_readme}"/index.html
+    echo $(
+      docker run \
+        --rm \
+        --volume "`pwd`:/data" \
+        --volume "${PATH_BASE}/css":"/css" \
+        pandoc/core:latest \
+          --standalone \
+          --metadata pagetitle="${title}" \
+          --highlight-style haddock \
+          -f markdown+hard_line_breaks \
+          -t html5 \
+          -H /css/github1.css \
+          "${file_readme}"
+    ) > "${path_readme}"/index.html
+        # pandoc/latex:2.6 \
+          # -H /css/github1.css \
+          # -t slidy \
+          # --wrap=preserve \
   fi 
 done
