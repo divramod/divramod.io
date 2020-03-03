@@ -9,6 +9,11 @@ for path_dir in $(find -type d -name "*" 2>/dev/null); do
   if [[ -f "${file_readme}" ]]; then
     title=$(sed -i -e '1 w /dev/stdout' "${file_readme}")
     title="${title:2}" 
+    base=$(echo "${file_readme}" | awk -F "/" '{print $1}')
+    echo "base: ${base}" 
+    if [[ "${base}" = "cs" ]]; then
+      echo "cs"
+    fi 
     echo "title: ${title}" 
     echo "file_readme: ${file_readme}" 
     echo $(
