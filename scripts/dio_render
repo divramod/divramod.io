@@ -1,4 +1,4 @@
-#!/usr/bin/env sh 
+#!/usr/bin/env bash 
 : "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
 cd "${PATH_BASE}"/content
 # https://github.com/pandoc/dockerfiles
@@ -10,3 +10,4 @@ for path_dir in $(find -type d -name "*" 2>/dev/null); do
     echo $(docker run --rm --volume "`pwd`:/data" pandoc/latex:2.6 "${file_readme}" ) > "${path_readme}"/index.html
   fi 
 done
+systemctl restart nginx
