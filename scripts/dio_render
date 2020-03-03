@@ -14,14 +14,15 @@ for path_dir in $(find -type d -name "*" 2>/dev/null); do
       docker run \
         --rm \
         --volume "`pwd`:/data" \
-        --volume "${PATH_BASE}/css":"/css" \
+        --volume "${PATH_BASE}/assets":"/assets" \
         pandoc/core:latest \
           --standalone \
           --metadata pagetitle="${title}" \
           --highlight-style haddock \
           -f markdown+hard_line_breaks \
           -t html5 \
-          -H /css/github1.css \
+          -A /assets/html/footer.html \
+          -H /assets/css/github1.css \
           "${file_readme}"
     ) > "${path_readme}"/index.html
         # pandoc/latex:2.6 \

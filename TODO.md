@@ -5,3 +5,4 @@
 * [ ] script: publish
 * [ ] script: revert to older version (commit hash)
 * [ ] helpers.sh: toc_create()
+* [ ] https://github.com/sindresorhus/github-markdown-css
