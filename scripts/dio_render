@@ -8,7 +8,7 @@ for path_dir in $(find -type d -name "*" 2>/dev/null); do
   file_readme="${path_dir:2}"/README.md
   if [[ -f "${file_readme}" ]]; then
     title=$(sed -i -e '1 w /dev/stdout' "${file_readme}")
-    title="${title_new:2}" 
+    title="${title:2}" 
     echo "title: ${title}" 
     echo "file_readme: ${file_readme}" 
     echo $(
