@@ -41,3 +41,25 @@ server {
                 autoindex_exact_size    off;
         }
 }
+
+server {
+        listen          80;
+        server_name     courses.divramod.io;
+        root            /var/www/divramod.io/content/courses;
+        location / {
+                index                   index.html;
+                autoindex               on;
+                autoindex_exact_size    off;
+        }
+}
+
+server {
+        listen          80;
+        server_name     videos.divramod.io;
+        root            /var/www/divramod.io/content/videos;
+        location / {
+                index                   index.html;
+                autoindex               on;
+                autoindex_exact_size    off;
+        }
+}
