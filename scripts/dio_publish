@@ -10,7 +10,7 @@ ssh -o "StrictHostKeyChecking no" root@"${ip}" '
   git stash &&
   git pull origin master &&
   direnv allow &&
-  /var/www/divramod.io/scripts/dio_render &&
-  cp /var/www/divramod.io/conf/nginx/divramod.io /etc/nginx/sites-enabled
-  systemctl restart nginx
+  cp /var/www/divramod.io/conf/nginx/divramod.io /etc/nginx/sites-enabled &&
+  systemctl restart nginx &&
+  /var/www/divramod.io/scripts/dio_render
 '
