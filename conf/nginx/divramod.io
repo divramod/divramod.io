@@ -14,7 +14,7 @@ server {
         # server_name     cs.divramod.io;
         server_name ~^(?P<sub>.+)\.cs\.divramod\.io$;
 
-        root            /var/www/divramod.io/content/cs/$sub;
+        root    /var/www/divramod.io/content/cs/$sub;
         location / {
                 index                   index.html;
                 autoindex               on;
