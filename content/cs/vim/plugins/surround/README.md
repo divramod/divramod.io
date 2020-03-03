@@ -1,1 +1,1 @@
-# [vim] plugin surround
+# [vim.plugin] surround
