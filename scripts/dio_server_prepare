@@ -1,2 +1,10 @@
 #!/usr/bin/env sh 
+
+# install
+apt update
+apt install nginx
+apt install direnv
 apt install docker.io
+# TODO: lets encrypt
+
+# configure
