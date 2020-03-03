@@ -11,8 +11,10 @@ server {
 
 server {
         listen          80;
-        server_name     cs.divramod.io;
-        root            /var/www/divramod.io/content/cs;
+        # server_name     cs.divramod.io;
+        server_name ~^(?P<sub>.+)\.cs\.divramod\.io$;
+
+        root            /var/www/divramod.io/content/cs/$sub;
         location / {
                 index                   index.html;
                 autoindex               on;
