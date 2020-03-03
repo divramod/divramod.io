@@ -1,0 +1,7 @@
+index.html
+
+.env/*
+!.env/*.secret
+
+.gitsecret/keys/random_seed
+!*.secret

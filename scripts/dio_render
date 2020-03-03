@@ -1,0 +1,5 @@
+#!/usr/bin/env sh 
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
+cd "${PATH_BASE}"/content
+# https://github.com/pandoc/dockerfiles
+echo $(docker run --rm --volume "`pwd`:/data" pandoc/latex:2.6 README.md) > index.html
