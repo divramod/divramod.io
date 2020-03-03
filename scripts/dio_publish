@@ -4,9 +4,11 @@ git commit -m "[publish]"
 git push origin master
 
 hcloud context use divramod.io
-ip=$(hcloud server list | tail -n +2 | fzf | awk '{ print $4; }')
+ip=$(hcloud server list | tail -n +2 | awk '{ print $4; }')
 ssh -o "StrictHostKeyChecking no" root@"${ip}" '
   cd /var/www/divramod.io &&
+  git stash &&
+  git pull origin master &&
   direnv allow &&
   /var/www/divramod.io/scripts/dio_render &&
   systemctl restart nginx
