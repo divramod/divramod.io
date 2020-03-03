@@ -8,3 +8,4 @@ apt install -y docker.io
 # TODO: lets encrypt
 
 # configure
+echo 'eval "$(direnv hook bash)"' >> ~/.bashrc

@@ -2,4 +2,11 @@
 : "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
 cd "${PATH_BASE}"/content
 # https://github.com/pandoc/dockerfiles
-echo $(docker run --rm --volume "`pwd`:/data" pandoc/latex:2.6 README.md) > index.html
+for path_dir in $(find -type d -name "*" 2>/dev/null); do
+  path_readme="${path_dir:2}"
+  file_readme="${path_dir:2}"/README.md
+  if [[ -f "${file_readme}" ]]; then
+    echo "file_readme: ${file_readme}" 
+    echo $(docker run --rm --volume "`pwd`:/data" pandoc/latex:2.6 "${file_readme}" ) > "${path_readme}"/index.html
+  fi 
+done
