@@ -60,18 +60,21 @@ _render() {
   # sed -i 's|<code class="code hljs lang-javascript"><br /> |</code>|g' "${file_index_html}" 
 }
 
-rm -rf "${path_rendered}" 
-cp -r "${path_content}" "${path_rendered}" 
-cd "${path_rendered}" 
-for path_dir in $(find -type d -name "*" 2>/dev/null); do
-  path_readme="${path_dir:2}"
-  file_readme="${path_dir:2}"/README.md
-  if [[ -f "${file_readme}" ]]; then
-    area=$(echo "${path_readme}" | awk -F "/" '{print $1}')
-    case $area in
-      blog ) _render_blog "${path_readme}" "${file_readme}";;
-      # *) _render "${path_readme}" "${file_readme}";;
-    esac 
-  fi
-done
+render() {
+  rm -rf "${path_rendered}" 
+  cp -r "${path_content}" "${path_rendered}" 
+  cd "${path_rendered}" 
+  for path_dir in $(find -type d -name "*" 2>/dev/null); do
+    path_readme="${path_dir:2}"
+    file_readme="${path_dir:2}"/README.md
+    if [[ -f "${file_readme}" ]]; then
+      area=$(echo "${path_readme}" | awk -F "/" '{print $1}')
+      case $area in
+        blog ) _render_blog "${path_readme}" "${file_readme}";;
+        # *) _render "${path_readme}" "${file_readme}";;
+      esac 
+    fi
+  done
+}
 
+render
