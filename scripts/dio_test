@@ -1,4 +1,13 @@
 #!/usr/bin/env sh 
 
-date_formatted=$(date "+%Y.%m.%d %H:%M")
-echo "date_formatted: ${date_formatted}" 
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
+file_readme_md="${PATH_BASE}"/.tmp/README.md
+file_readme_md_rendered="${PATH_BASE}"/.tmp/README_rendered.md
+rm "${file_readme_md_rendered}" 
+cp ${file_readme_md} ${file_readme_md_rendered} 
+sed -i -E 's|```(.*)$|<div><code class="code hljs \1">|g' "${file_readme_md_rendered}" 
+cat ${file_readme_md_rendered} 
+
+
+# date_formatted=$(date "+%Y.%m.%d %H:%M")
+# echo "date_formatted: ${date_formatted}" 

@@ -1,5 +1,6 @@
 index.html
 rendered
+.tmp
 
 .env/*
 !.env/*.secret
