@@ -64,7 +64,7 @@ render() {
   rm -rf "${path_rendered}" 
   cp -r "${path_content}" "${path_rendered}" 
   cd "${path_rendered}" 
-  for path_dir in $(find -type d -name "*" 2>/dev/null); do
+  for path_dir in $(find . -type d -name "*" 2>/dev/null); do
     path_readme="${path_dir:2}"
     file_readme="${path_dir:2}"/README.md
     if [[ -f "${file_readme}" ]]; then
