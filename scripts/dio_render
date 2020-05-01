@@ -7,7 +7,7 @@ path_rendered="${PATH_BASE}"/rendered
 _pre_render() {
   path_readme="${1}"
   file_readme="${2}"
-  sed -i -E 's|```(.*)$|<div><code class="code hljs \1">|g' "${file_index_html}" 
+  sed -i -E 's|```(.*)$|<div><code class="code hljs \1">|g' "${file_readme}" 
   # code <pre> add <br>
   # tr "\n" "|" < ${file_readme}  | grep -o '<pre>.*</pre>'
   # pics
