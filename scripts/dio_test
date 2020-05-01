@@ -1,0 +1,5 @@
+#!/usr/bin/env sh 
+
+env LC_ALL=en_US.utf8 
+date_formatted=$(date "+%Y.%m.%d %A %H:%M")
+echo "date_formatted: ${date_formatted}" 
