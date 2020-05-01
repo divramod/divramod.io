@@ -1,6 +1,7 @@
 #!/usr/bin/env sh 
+date_formatted=$(date "+%Y.%m.%d %H:%M")
 git add -A
-git commit -m "[publish]"
+git commit -m "[publish] ${date_formatted}"
 git push origin master
 
 hcloud context use divramod.io
