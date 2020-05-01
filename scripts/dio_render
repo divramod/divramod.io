@@ -11,6 +11,13 @@ _pre_render() {
   # --- [code]
   sed -i -E 's|```(.+)$|<div><code class="code hljs \1">|g' "${file_readme}" 
   sed -i -E 's|```$|</code></div>|g' "${file_readme}" 
+  sed -i -e 's|^        |\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
+  sed -i -e 's|^      |\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
+  sed -i -e 's|^    |\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
+  sed -i -e 's|^  |\&nbsp;\&nbsp;|g' "${file_readme}" 
+  sed -i 's|^$|<span></span>|g' "${file_readme}" 
+
+
 
   # --- TODO [pics]
 
@@ -45,7 +52,9 @@ _render() {
     sed -i '1s/^/[vim](http:\/\/cs\.divramod\.io\/vim) [git](http:\/\/cs\.divramod\.io\/git)\n\n/' "${file_readme}" 
   fi 
   echo "file_readme: ${file_readme}, title: ${title}" 
+  cat ${file_readme}
   _pre_render "${path_readme}" ${file_readme} 
+  cat ${file_readme}
   echo $(
     # https://github.com/pandoc/dockerfiles
     _pre_render ${1} ${2} 
@@ -65,6 +74,7 @@ _render() {
         -H /assets/css/copy.css \
         "${file_readme}"
   ) > "${file_index_html}"
+  cat "${file_index_html}"
   _post_render "${file_index_html}" 
 }
 
@@ -79,7 +89,7 @@ render() {
       area=$(echo "${path_readme}" | awk -F "/" '{print $1}')
       case $area in
         blog ) _render_blog "${path_readme}" "${file_readme}";;
-        *) _render "${path_readme}" "${file_readme}";;
+        # *) _render "${path_readme}" "${file_readme}";;
       esac 
     fi
   done

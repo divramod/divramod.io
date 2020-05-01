@@ -4,11 +4,15 @@
 - baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaashhhhhhhhhhhhhhhhhhhhhhhhhhhh
 ```bash
 echo "hello"
-echo "hello"
-echo "hello"
-echo "hello"
-echo “hello”
-echo “hello”
+hello() {
+    echo "hello"
+    echo "hello"
+    echo “hello”
+    if [[ "a" == "b" ]]; then
+        echo “hello”
+    fi
+}
+
 echo “hello”
 ```
 
@@ -17,5 +21,6 @@ echo “hello”
 
 ```go
 var test := 1
+
 var test1 := 1
 ```
