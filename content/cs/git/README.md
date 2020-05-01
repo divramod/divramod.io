@@ -1,6 +1,6 @@
-[vim](http://cs.divramod.io/vim) [git](http://cs.divramod.io/git)
-
 # [cheatsheets] git
+
 ```sh
 git clone
+echo "hello"
 ```
