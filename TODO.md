@@ -1,4 +1,5 @@
 # TODO (divramod.io)
+- [ ] hightlight copy https://www.dannyguo.com/blog/how-to-add-copy-to-clipboard-buttons-to-code-blocks-in-hugo/ 
 * [ ] [add] contact link to footer.html
 * [ ] [add] hackernews favorite list
 * [ ] [add] inspired by area 
