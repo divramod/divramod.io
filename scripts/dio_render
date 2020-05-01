@@ -11,11 +11,11 @@ _pre_render() {
   # --- [code]
   sed -i -E 's|```(.+)$|<div><code class="code hljs \1">|g' "${file_readme}" 
   sed -i -E 's|```$|</code></div>|g' "${file_readme}" 
+  sed -i 's|^$|\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^        |\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^      |\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^    |\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^  |\&nbsp;\&nbsp;|g' "${file_readme}" 
-  sed -i 's|^$|<span></span>|g' "${file_readme}" 
 
 
 
