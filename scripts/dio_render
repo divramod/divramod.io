@@ -7,16 +7,25 @@ path_rendered="${PATH_BASE}"/rendered
 _pre_render() {
   path_readme="${1}"
   file_readme="${2}"
-  sed -i -E 's|```(.*)$|<div><code class="code hljs \1">|g' "${file_readme}" 
-  # code <pre> add <br>
-  # tr "\n" "|" < ${file_readme}  | grep -o '<pre>.*</pre>'
-  # pics
+
+  # --- [code]
+  sed -i -E 's|```(.+)$|<div><code class="code hljs \1">|g' "${file_readme}" 
+  sed -i -E 's|```$|</code></div>|g' "${file_readme}" 
+
+  # --- TODO [pics]
 
 }
 
 _post_render() {
   file_index_html="${1}"
+
+  # --- [code]   
   sed -i 's|<br /> </code>|</code>|g' "${file_index_html}" 
+  for (( i = 0; i < 5; i++ )); do
+    sed -i -E 's|<code class="code hljs (.+)"><br /> |<code class="code hljs \1">|g' "${file_index_html}" 
+  done 
+  sed -i 's|<br /> |<br />|g' "${file_index_html}" 
+
 }
 
 _render_blog() {
@@ -36,6 +45,7 @@ _render() {
     sed -i '1s/^/[vim](http:\/\/cs\.divramod\.io\/vim) [git](http:\/\/cs\.divramod\.io\/git)\n\n/' "${file_readme}" 
   fi 
   echo "file_readme: ${file_readme}, title: ${title}" 
+  _pre_render "${path_readme}" ${file_readme} 
   echo $(
     # https://github.com/pandoc/dockerfiles
     _pre_render ${1} ${2} 
@@ -56,9 +66,6 @@ _render() {
         "${file_readme}"
   ) > "${file_index_html}"
   _post_render "${file_index_html}" 
-  # cat ${file_index_html} 
-  # sed -i 's|<code .*><br /> ||g' "${file_index_html}" 
-  # sed -i 's|<code class="code hljs lang-javascript"><br /> |</code>|g' "${file_index_html}" 
 }
 
 render() {
