@@ -3,6 +3,7 @@
 : "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
 path_content="${PATH_BASE}"/content
 path_rendered="${PATH_BASE}"/rendered
+path_web="${HOME}/art/me/web"
 
 _pre_render() {
   path_readme="${1}"
@@ -81,6 +82,10 @@ _render() {
 }
 
 render() {
+  if [[ -d "${path_web}" ]]; then
+    rm -rf "${path_content}"
+    cp -r "${path_web}" "${path_content}"
+  fi 
   rm -rf "${path_rendered}" 
   cp -r "${path_content}" "${path_rendered}" 
   cd "${path_rendered}" 

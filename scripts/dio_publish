@@ -1,11 +1,24 @@
 #!/usr/bin/env sh 
+
+# --- [cp] web content from me, when local 
+if [[ -d "${path_web}" ]]; then
+  rm -rf "${path_content}"
+  cp -r "${path_web}" "${path_content}"
+fi 
+
+# --- [git] add / commit / push 
 date_formatted=$(date "+%Y.%m.%d %H:%M")
 git add -A
 git commit -m "[publish] ${date_formatted}"
 git push origin master
 
+# --- [hetzner] set hcloud context 
 hcloud context use divramod.io
+
+# --- [hetzner] get ip of server 
 ip=$(hcloud server list | tail -n +2 | awk '{ print $4; }')
+
+# --- [ssh] render and publish
 ssh -o "StrictHostKeyChecking no" root@"${ip}" '
   cd /var/www/divramod.io &&
   git stash &&
