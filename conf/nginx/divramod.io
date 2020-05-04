@@ -36,7 +36,7 @@ server {
 server {
         listen          80;
         server_name     blog.divramod.io;
-        root            /var/www/divramod.io/rendered/blog;
+        root            /var/www/divramod.io/rendered/blog/publish;
         location / {
                 index                   index.html;
                 autoindex               on;
@@ -70,6 +70,17 @@ server {
         listen          80;
         server_name     videos.divramod.io;
         root            /var/www/divramod.io/rendered/videos;
+        location / {
+                index                   index.html;
+                autoindex               on;
+                autoindex_exact_size    off;
+        }
+}
+
+server {
+        listen          80;
+        server_name     cv.divramod.io;
+        root            /var/www/divramod.io/rendered/cv;
         location / {
                 index                   index.html;
                 autoindex               on;
