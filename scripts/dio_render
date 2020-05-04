@@ -91,7 +91,7 @@ render() {
       area=$(echo "${path_readme}" | awk -F "/" '{print $1}')
       case $area in
         blog ) _render_blog "${path_readme}" "${file_readme}";;
-        # *) _render "${path_readme}" "${file_readme}";;
+        *) _render "${path_readme}" "${file_readme}";;
       esac 
     fi
   done
