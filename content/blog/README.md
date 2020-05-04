@@ -1,7 +1,21 @@
 # blog.divramod.io
 
-# code bash
+## code bash
 - baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaashhhhhhhhhhhhhhhhhhhhhhhhhhhh
+```bash
+echo "hello"
+hello() {
+    echo "hello"
+    echo "hello"
+    echo “hello”
+    if [[ "a" == "b" ]]; then
+        echo “hello”
+    fi
+}
+
+echo “hello”
+```
+- test
 ```bash
 echo "hello"
 hello() {
@@ -17,8 +31,6 @@ echo “hello”
 ```
 
 # code go
-- goooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
 ```go
 var test := 1
 

@@ -1,11 +1,16 @@
 #!/usr/bin/env sh 
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
 
 file_readme_md="${PATH_BASE}"/.tmp/README.md
 file_readme_md_rendered="${PATH_BASE}"/.tmp/README_rendered.md
+rm "${file_readme_md_rendered}" 
+cp ${file_readme_md} ${file_readme_md_rendered} 
 
-grep -c 'word-to-search' ${file} 
+sed '/#.*$/{
+  N
+  s/\nPlease do not/not a test\nBe/
+}' ${file_readme_md_rendered} 
 
-# : "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
 # file_readme_md="${PATH_BASE}"/.tmp/README.md
 # file_readme_md_rendered="${PATH_BASE}"/.tmp/README_rendered.md
 # rm "${file_readme_md_rendered}" 

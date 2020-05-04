@@ -11,13 +11,18 @@ _pre_render() {
   # --- [code]
   sed -i -E 's|```(.+)$|<div><code class="code hljs \1">|g' "${file_readme}" 
   sed -i -E 's|```$|</code></div>|g' "${file_readme}" 
-  sed -i 's|^$|\&nbsp;|g' "${file_readme}" 
+  sed -i -E 's|^\#(.*)$|HEADERLINE\n\#\1|g' "${file_readme}" 
+  # sed -i -E 's|^\#(.*)$|\n\#\1\nHEADERLINE|g' "${file_readme}" 
+  sed -i 's|^$|NEWLINE|g' "${file_readme}" 
   sed -i -e 's|^        |\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^      |\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^    |\&nbsp;\&nbsp;\&nbsp;\&nbsp;|g' "${file_readme}" 
   sed -i -e 's|^  |\&nbsp;\&nbsp;|g' "${file_readme}" 
-
-
+  sed -i 's|HEADERLINE||g' "${file_readme}" 
+  sed -i 's|NEWLINE|\&nbsp;|g' "${file_readme}" 
+  # sed -i '/^$/d' ${file_readme} 
+  # sed -i -E 's|(.+)|<div><code class="code hljs \1">|g' "${file_readme}" 
+  cat "${file_readme}" 
 
   # --- TODO [pics]
 
@@ -52,12 +57,9 @@ _render() {
     sed -i '1s/^/[vim](http:\/\/cs\.divramod\.io\/vim) [git](http:\/\/cs\.divramod\.io\/git)\n\n/' "${file_readme}" 
   fi 
   echo "file_readme: ${file_readme}, title: ${title}" 
-  cat ${file_readme}
   _pre_render "${path_readme}" ${file_readme} 
-  cat ${file_readme}
   echo $(
     # https://github.com/pandoc/dockerfiles
-    _pre_render ${1} ${2} 
     docker run \
       --rm \
       --volume "`pwd`:/data" \
@@ -74,7 +76,7 @@ _render() {
         -H /assets/css/copy.css \
         "${file_readme}"
   ) > "${file_index_html}"
-  cat "${file_index_html}"
+  # cat "${file_index_html}"
   _post_render "${file_index_html}" 
 }
 
