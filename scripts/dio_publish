@@ -1,6 +1,9 @@
 #!/usr/bin/env sh 
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}" 
 
 # --- [cp] web content from me, when local 
+path_content="${PATH_BASE}"/content
+path_web="${HOME}/art/me/web"
 if [[ -d "${path_web}" ]]; then
   rm -rf "${path_content}"
   cp -r "${path_web}" "${path_content}"
