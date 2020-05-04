@@ -22,7 +22,7 @@ _pre_render() {
   sed -i 's|NEWLINE|\&nbsp;|g' "${file_readme}" 
   # sed -i '/^$/d' ${file_readme} 
   # sed -i -E 's|(.+)|<div><code class="code hljs \1">|g' "${file_readme}" 
-  cat "${file_readme}" 
+  # cat "${file_readme}" 
 
   # --- TODO [pics]
 
