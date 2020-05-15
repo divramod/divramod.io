@@ -10,7 +10,7 @@ _blog_toc() {
   local path_blog_publish="${path_rendered}"/blog/publish
   local path_blog_archive="${path_rendered}"/blog/archive
   local path_blog_inprogress="${path_rendered}"/blog/inprogress
-  _blog_toc_helper "${file_blog_readme}" "${path_blog_publish}" "publish" "published"
+  # _blog_toc_helper "${file_blog_readme}" "${path_blog_publish}" "publish" "published"
   _blog_toc_helper "${file_blog_readme}" "${path_blog_inprogress}" "inprogress" "in progress"
   cat ${file_blog_readme} 
 }
