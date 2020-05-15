@@ -28,7 +28,7 @@ _blog_toc_helper() {
     local subpath_help=${file:2}
     local subpath=${subpath_help%/README.md} 
     local date_blog=${subpath:0:4}.${subpath:4:2}.${subpath:6:2}
-    echo "- ${date_blog}: [${line_first:2}](blog.divramod.io/${part}/${subpath}/index.html)" >> "${file_blog_readme}" 
+    echo "- ${date_blog}: [${line_first:2}](${part}/${subpath}/index.html)" >> "${file_blog_readme}" 
   done
 }
 
