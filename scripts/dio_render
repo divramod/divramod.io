@@ -18,14 +18,16 @@ _blog_toc() {
 _blog_toc_helper() {
   local file_blog_readme="${1}"
   local path_blog_toc="${2}"
-  local part="${3}" 
-  local text="${4}" 
+  local part="${3}"
+  local text="${4}"
   echo >> "${file_blog_readme}"
   echo "# ${text} posts" >> "${file_blog_readme}"
-  cd "${path_blog_toc}"  
+  cd "${path_blog_toc}"
   for file in $(find . -type f -name "README.md" 2>/dev/null | sort -z); do
-    line_first=$(head -n 1 "${file}")
-    echo "- [${line_first:2}](blog.divramod.io/${part}/${file:2})" >> "${file_blog_readme}" 
+    local line_first=$(head -n 1 "${file}")
+    local subpath=${file:2}
+    local subpath_minus_readme=${subpath:-9} 
+    echo "- [${line_first:2}](blog.divramod.io/${part}/${subpath_minus_readme}/index.html)" >> "${file_blog_readme}" 
   done
 }
 
