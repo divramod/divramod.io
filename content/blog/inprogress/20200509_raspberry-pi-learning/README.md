@@ -8,3 +8,6 @@
 
 # next
 - EVERYONE needs to learn LINUX - ft. Raspberry Pi 4 https://www.youtube.com/watch?v=l9YxTXDiiFY
+
+# steps
+1. format sd card https://www.cio.com/article/3176034/how-to-format-an-sd-card-in-linux.html 

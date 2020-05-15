@@ -5,6 +5,30 @@ path_content="${PATH_BASE}"/content
 path_rendered="${PATH_BASE}"/rendered
 path_web="${HOME}/art/me/web"
 
+_blog_toc() {
+  local file_blog_readme="${path_rendered}"/blog/README.md
+  local path_blog_publish="${path_rendered}"/blog/publish
+  local path_blog_archive="${path_rendered}"/blog/archive
+  local path_blog_inprogress="${path_rendered}"/blog/inprogress
+  _blog_toc_helper "${file_blog_readme}" "${path_blog_publish}" "publish" "published"
+  _blog_toc_helper "${file_blog_readme}" "${path_blog_inprogress}" "inprogress" "in progress"
+  cat ${file_blog_readme} 
+}
+
+_blog_toc_helper() {
+  local file_blog_readme="${1}"
+  local path_blog_toc="${2}"
+  local part="${3}" 
+  local text="${4}" 
+  echo >> "${file_blog_readme}"
+  echo "# ${text} posts" >> "${file_blog_readme}"
+  cd "${path_blog_toc}"  
+  for file in $(find . -type f -name "README.md" 2>/dev/null | sort -z); do
+    line_first=$(head -n 1 "${file}")
+    echo "- [${line_first:2}](blog.divramod.io/${part}/${file:2})" >> "${file_blog_readme}" 
+  done
+}
+
 _pre_render() {
   path_readme="${1}"
   file_readme="${2}"
@@ -81,13 +105,14 @@ _render() {
   _post_render "${file_index_html}" 
 }
 
-render() {
+run() {
   if [[ -d "${path_web}" ]]; then
     rm -rf "${path_content}"
     cp -r "${path_web}" "${path_content}"
   fi 
   rm -rf "${path_rendered}" 
   cp -r "${path_content}" "${path_rendered}" 
+  _blog_toc
   cd "${path_rendered}" 
   for path_dir in $(find . -type d -name "*" 2>/dev/null); do
     path_readme="${path_dir:2}"
@@ -102,4 +127,4 @@ render() {
   done
 }
 
-render
+run

@@ -36,7 +36,7 @@ server {
 server {
         listen          80;
         server_name     blog.divramod.io;
-        root            /var/www/divramod.io/rendered/blog/publish;
+        root            /var/www/divramod.io/rendered/blog;
         location / {
                 index                   index.html;
                 autoindex               on;
