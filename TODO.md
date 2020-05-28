@@ -3,7 +3,10 @@
   - search for path regex blog* or 20201*
 
 # BACKLOG
+- donations / github sponsors
 - last activity list on front page (last created, last updated)
+- contact
+- links to fork on githug / start on github
 - [ ] [add] contact link to footer.html
 - [ ] [add] hackernews favorite list
 - [ ] [add] inspired by area 
@@ -22,4 +25,4 @@
 - [X] [script] publish
 - [X] move divramod.io to artifacts
 - [X] add git secret folder
-- [X] hightlight copy https://www.dannyguo.com/blog/how-to-add-copy-to-clipboard-buttons-to-code-blocks-in-hugo/ 
+- [X] hightlight copy https://www.dannyguo.com/blog/how-to-add-copy-to-clipboard-buttons-to-code-blocks-in-hugo/
