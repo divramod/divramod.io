@@ -1,6 +1,6 @@
-# hacks: A message from Comodo Hacker
+# DigiNotar
 - [A message from Comodo Hacker](https://pastebin.com/74KXCaEZ)
-```
+```txt
 Hello
 
 I'm writing this to all the world, so you'll know more about us..
