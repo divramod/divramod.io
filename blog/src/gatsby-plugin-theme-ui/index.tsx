@@ -1,4 +1,4 @@
-import { themeBase } from '@divramod/gatsby-theme-ts-mdx'
+import { themeBase } from "@divramod/gatsby-theme-ts-mdx";
 
 export const themeSite = {
   ...themeBase,
@@ -8,5 +8,5 @@ export const themeSite = {
   // https://theme-ui.com/packages/gatsby-theme-ui-blog/#theming
   // ==================================================
   // TODO
-}
-export default themeSite
+};
+export default themeSite;
