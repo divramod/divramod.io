@@ -29,14 +29,16 @@ _main() {
 
 deploy_dio() {
   echo "deploy"
+  hcloud context use divramod.io
+  hcloud server list
+  hcloud floating-ip list
 
 }
 
 server_prepare_dio() {
-  hcloud context use divramod.io
-  hcloud server list
-  hcloud floating-ip list
   echo "server prepare"
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 }
 
