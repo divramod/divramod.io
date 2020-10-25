@@ -32,14 +32,20 @@ deploy_dio() {
   hcloud context use divramod.io
   hcloud server list
   hcloud floating-ip list
-
 }
 
 server_prepare_dio() {
   echo "server prepare"
   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
+  # todo: install node version 14
+  # todo: install argsh
+  # todo: install nvm
+  # todo: install yarn
+  # todo: install yarn global add gatsby
+  # todo yarn install
+  # todo yarn build
+  # todo copy to /var/www/html
 }
 
 ssh_dio() {

@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "demo",
-    description: `Gatsby theme divramod demo site. Built by Arvid Petermann (@divramod)`,
+    title: "divramod.io",
+    description: `Built by Arvid Petermann (@divramod)`,
     links: [
-      { label: 'cv', path: '/cv'},
+      { label: 'cheatsheets', path: '/cheatsheets'},
       { label: 'blog', path: '/blog'},
     ]
   },
