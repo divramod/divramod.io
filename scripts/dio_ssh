@@ -1,4 +1,0 @@
-#!/usr/bin/env sh 
-hcloud context use divramod.io
-ip=$(hcloud server list | tail -n +2 | awk '{ print $4; }')
-ssh -o "StrictHostKeyChecking no" root@"${ip}" 
